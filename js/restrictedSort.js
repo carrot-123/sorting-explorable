@@ -1,5 +1,6 @@
 export default class RestrictedSort {
   constructor(steps, workingArray, sortNumber) {
+    // add markersteps (have markers follow a predetermined order)
     this.selectedNums = [];
     this.steps = steps; // check which step we are on...
     this.workingArray = workingArray;
