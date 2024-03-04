@@ -1,5 +1,6 @@
 import FreeSort from "./freeSort.js";
 import RestrictedSort from "./restrictedSort.js";
+import ComputerSort from "./computerSort.js";
 export default class App {
   constructor() {
     this.sortedArray1 = ["1", "2", "3"];
@@ -28,20 +29,25 @@ export default class App {
     ];
 
     this.workingArray3 = ["3", "1", "2"];
-    this._freeSort1 = new FreeSort(this.sortedArray1, this.workingArray1, "1");
-    this._freeSort2 = new FreeSort(this.sortedArray2, this.workingArray2, "2");
+    this._freeSort1 = new FreeSort(this.sortedArray, this.workingArray, "3");
+    this._freeSort2 = new ComputerSort(
+      this.sortedArray,
+      this.workingArray,
+      "4"
+    );
     //this._freeSort3 = new RestrictedSort(this.steps, this.workingArray3, "3");
     this._bubbleSort = new RestrictedSort(
       this.bubbleSortSteps,
       this.workingArray,
-
-      "0"
+      "5"
     );
     this._nextPage = this._nextPage.bind(this);
     document.querySelector("#next1").addEventListener("click", this._nextPage);
     document.querySelector("#next2").addEventListener("click", this._nextPage);
-    this._prevPage = this._prevPage.bind(this);
-    document.querySelector("#back2").addEventListener("click", this._prevPage);
+    document.querySelector("#next3").addEventListener("click", this._nextPage);
+    document.querySelector("#next4").addEventListener("click", this._nextPage);
+    document.querySelector("#next5").addEventListener("click", this._nextPage);
+    //document.querySelector("#next6").addEventListener("click", this._nextPage);
   }
   _nextPage(event) {
     let pageNum = event.target.id.slice(4);

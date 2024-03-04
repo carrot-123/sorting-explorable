@@ -7,14 +7,95 @@
   </head>
   <body>
     <main id="page1">
+      <h1>Sorting with Computers</h1>
+      <button type="submit" id="next1">Start</button>
+    </main>
+    <main id="page2" class="hidden">
+      <h1>What is Sorting</h1>
+      <section>
+        If you've ever arranged your books by color, grouped poker cards by
+        suits, or displayed your seashell collection by size, then you have
+        sorted! Sorting simply refers to re-arranging elements in a certain
+        order. Here's a quick example of why computers need to sort: Try finding
+        and clicking on "aadvark" for both computers screens below. On which
+        computer was it easier to find?
+      </section>
+      <button type="submit" id="next2">Okay</button>
+    </main>
+    <main id="page3" class="hidden">
+      <h1>How we Sort</h1>
+      <section>
+        Sorting *seems* straightforward. Try sorting the seashells below by
+        clicking on two shells to swap their places. Sort from smallest to
+        biggest. (They are also labeled from 1 to 6, with the smallest seashell
+        labeled 1 and the biggest seashell labeled 6.)
+      </section>
+      <section class="sort3 box" id="sort3box1"><span>6</span></section>
+      <section class="sort3 box" id="sort3box2"><span>3</span></section>
+      <section class="sort3 box" id="sort3box3"><span>4</span></section>
+      <section class="sort3 box" id="sort3box4"><span>5</span></section>
+      <section class="sort3 box" id="sort3box5"><span>2</span></section>
+      <section class="sort3 box" id="sort3box6"><span>1</span></section>
+      <section>
+        But for computers, sorting is not so trivial. Computers don't have eyes
+        like we do, so they can't see the seashells all at once. Rather, they
+        can only focus on one or two at a time. Let's now try sorting as though
+        we are a computer.
+      </section>
+      <button type="submit" id="next3">Okayt</button>
+    </main>
+    <main id="page4" class="hidden">
+      <h1>How computers sort</h1>
+
+      <section>
+        Here, you can only see two seashells at a time: the shell at the spot
+        you are focusing on, and the shell in the spot after it. At any moment,
+        you can swap two shells. To focus on the next shell, press "Next". If
+        you reach the last spot, pressing "Next" will bring you back to first
+        spot. (Hint: You'll most likely have to loop back to the first spot many
+        times.) Try sorting the seashells now!
+      </section>
+
+      <section class="sort4 box" id="sort4box1"><span>6</span></section>
+      <section class="sort4 box" id="sort4box2"><span>3</span></section>
+      <section class="sort4 box hideBox" id="sort4box3"><span>4</span></section>
+      <section class="sort4 box hideBox" id="sort4box4"><span>5</span></section>
+      <section class="sort4 box hideBox" id="sort4box5"><span>2</span></section>
+      <section class="sort4 box hideBox" id="sort4box6"><span>1</span></section>
+      <button type="submit" id="step4">Step</button>
+      <button type="submit">I give up</button>
+      <button type="submit" id="next4">Okay</button>
+      <section>
+        As you can see, computers sort differently than humans! Let's explore
+        three different sorting algorithms we can use to arrange our seashells.
+      </section>
+    </main>
+
+    <main id="page5" class="hidden">
       <h1>Bubble Sort</h1>
-      <section class="sort0" id="sort0box1"><span>6</span></section>
-      <section class="sort0" id="sort0box2"><span>3</span></section>
-      <section class="sort0" id="sort0box3"><span>4</span></section>
-      <section class="sort0" id="sort0box4"><span>5</span></section>
-      <section class="sort0" id="sort0box5"><span>2</span></section>
-      <section class="sort0" id="sort0box6"><span>1</span></section>
+      <section>
+        First up, it's bubble sort! The set-up is exactly the same as the
+        previous sort: you can see the shell at your current spot and the shell
+        at the next spot. Follow the rules (algorithm) step by step to sort all
+        the seashells. (Toggle on or off )
+      </section>
+      <section>
+        Algorithm: for as long as the seashells are not sorted, do the
+        following: 1. if the shell at your current spot is bigger than the shell
+        at the next spot, then swap them 2. Move to the next shell
+      </section>
+      <section class="sort5 box" id="sort5box1"><span>6</span></section>
+      <section class="sort5 box" id="sort5box2"><span>3</span></section>
+      <section class="sort5 box" id="sort5box3"><span>4</span></section>
+      <section class="sort5 box" id="sort5box4"><span>5</span></section>
+      <section class="sort5 box" id="sort5box5"><span>2</span></section>
+      <section class="sort5 box" id="sort5box6"><span>1</span></section>
       <button type="submit" id="step">Step 1</button>
+      <button type="submit" id="toggle">Toggle</button>
+      <button type="submit" id="next5">Okay, I think I got it</button>
+    </main>
+    <main id="page10" class="hidden">
+      <h1>sort case 3</h1>
       <h1>sort case 1</h1>
       <section class="sort1" id="box1"><span>2</span></section>
       <section class="sort1" id="box2"><span>1</span></section>
@@ -23,15 +104,9 @@
       <section class="sort2" id="box4"><span>3</span></section>
       <section class="sort2" id="box5"><span>2</span></section>
       <section class="sort2" id="box6"><span>1</span></section>
-      <button type="submit" id="next1">Next</button>
-    </main>
-    <main id="page2" class="hidden">
-      <h1>sort case 3</h1>
       <section class="sort3" id="box7"><span>2</span></section>
       <section class="sort3" id="box8"><span>3</span></section>
       <section class="sort3" id="box9"><span>1</span></section>
-      <button type="submit" id="back2">Back</button>
-      <button type="submit" id="next2">Next</button>
     </main>
     <main id="page3" class="hidden">
       <h1>hi</h1>

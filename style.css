@@ -1,34 +1,30 @@
 body {
 }
 
-.sort1 {
+.box {
   width: 350px;
   height: 70px;
   padding: 10px;
   border: 1px solid #f80000;
-  fill: #0d0a0a;
-  user-select: none;
-  background-color: #0d0a0a; /* prevent cheating lol */
-}
-.sort2 {
-  width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #0d0a0a;
-}
-.sort0 {
-  width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #0d0a0a;
-}
-.sort3 {
-  width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #0d0a0a;
 }
 
 .hidden {
   display: none;
+}
+
+.hideBox {
+  user-select: none; /* prevent highlighting to see text */
+  background-color: #0d0a0a;
+}
+
+.posBox {
+  background-color: #ff7a7a;
+}
+
+.swapBox {
+  background-color: #a4ff7a;
+}
+
+.selected {
+  background-color: aqua;
 }

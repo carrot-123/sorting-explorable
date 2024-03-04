@@ -1,31 +1,41 @@
 export default class RestrictedSort {
-  constructor(steps, workingArray, sortNumber) {
+  constructor(steps, workingArray, number) {
     // add markersteps (have markers follow a predetermined order)
     this.selectedNums = [];
     this.steps = steps; // check which step we are on...
     this.workingArray = workingArray;
-    this.number = sortNumber;
-    this.sortNumber = ".sort" + sortNumber;
+    this.number = number;
+
     this._handleSwap = this._handleSwap.bind(this);
     document
-      .querySelectorAll(this.sortNumber)
+      .querySelectorAll(".sort" + this.number)
       .forEach((box) => box.addEventListener("click", this._handleSwap));
-    this._stepOne = this._stepOne.bind(this);
-    document.querySelector("#step").addEventListener("click", this._stepOne);
+    this._nextStep = this._nextStep.bind(this);
+    document.querySelector("#step").addEventListener("click", this._nextStep);
+    this._toggleSwap = this._toggleSwap.bind(this);
+    document
+      .querySelector("#toggle")
+      .addEventListener("click", this._toggleSwap);
     this.stepsIndex = 0;
     this.posIndex = 1;
     this.swapIndex = 2;
     this.posUpperBound = 5;
-  }
-  _stepOne() {
-    this.selectedNums = [];
-    let posVal = document.getElementById(
-      "sort" + this.number + "box" + this.posIndex
-    ).children[0].textContent;
-    let swapVal = document.getElementById(
-      "sort" + this.number + "box" + this.swapIndex
-    ).children[0].textContent;
+    this.showSwap = false;
 
+    document
+      .getElementById("sort" + this.number + "box" + this.posIndex)
+      .classList.add("posBox");
+  }
+  _nextStep() {
+    this.selectedNums = [];
+    let posElem = document.getElementById(
+      "sort" + this.number + "box" + this.posIndex
+    );
+    let posVal = posElem.children[0].textContent;
+    let swapElem = document.getElementById(
+      "sort" + this.number + "box" + this.swapIndex
+    );
+    let swapVal = swapElem.children[0].textContent;
     if (
       this.steps[this.stepsIndex].indexOf(posVal) === -1 ||
       this.steps[this.stepsIndex].indexOf(swapVal) === -1
@@ -40,6 +50,18 @@ export default class RestrictedSort {
         this.posIndex += 1;
         this.swapIndex += 1;
       }
+      let newPosElem = document.getElementById(
+        "sort" + this.number + "box" + this.posIndex
+      );
+      posElem.classList.remove("posBox");
+      newPosElem.classList.add("posBox");
+      if (this.showSwap) {
+        let newSwapElem = document.getElementById(
+          "sort" + this.number + "box" + this.swapIndex
+        );
+        swapElem.classList.remove("swapBox");
+        newSwapElem.classList.add("swapBox");
+      }
     } else {
       console.log("you are supposed to swap the current values");
     }
@@ -48,9 +70,7 @@ export default class RestrictedSort {
   }
   _handleSwap(event) {
     // after x amount of steps, give option to move on
-    let targetId = event.target.id;
-    console.log(targetId);
-    console.log("sort" + this.number + "box" + this.posIndex);
+
     let posVal = document.getElementById(
       "sort" + this.number + "box" + this.posIndex
     ).children[0].textContent;
@@ -63,8 +83,10 @@ export default class RestrictedSort {
       let value = document.getElementById(targetId).children[0];
       if (this.selectedNums.length === 0) {
         this.selectedNums.push(value);
+        value.classList.add("selected");
       } else if (this.selectedNums[0] === value) {
         this.selectedNums.pop();
+        value.classList.remove("selected");
       } else if (
         // need to make sure that the current positions have been selected
         this.steps[this.stepsIndex].indexOf(
@@ -72,8 +94,10 @@ export default class RestrictedSort {
         ) === -1 ||
         this.steps[this.stepsIndex].indexOf(value.textContent) === -1
       ) {
+        this.selectedNums[0].classList.remove("selected");
+
         console.log("invalid move"); // highlight the hint/the correct elements to swap
-        this.selectedNums = [];
+        this.selectedNums = []; // add animation
       } else if (
         this.steps[this.stepsIndex].indexOf(posVal) > -1 &&
         this.steps[this.stepsIndex].indexOf(swapVal) > -1
@@ -85,6 +109,8 @@ export default class RestrictedSort {
         let parent2 = child2.parentElement;
         parent1.prepend(child2);
         parent2.prepend(child1);
+        this.selectedNums[0].classList.remove("selected");
+        this.selectedNums[1].classList.remove("selected");
         this.selectedNums = [];
 
         console.log(this.steps);
@@ -94,6 +120,17 @@ export default class RestrictedSort {
           this.stepsIndex += 1;
         }
       }
+    }
+  }
+  _toggleSwap() {
+    this.showSwap = !this.showSwap;
+    let posElem = document.getElementById(
+      "sort" + this.number + "box" + this.swapIndex
+    );
+    if (this.showSwap) {
+      posElem.classList.add("swapBox");
+    } else {
+      posElem.classList.remove("swapBox");
     }
   }
 }
