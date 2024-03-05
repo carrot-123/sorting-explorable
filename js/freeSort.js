@@ -13,8 +13,14 @@ export default class FreeSort {
       .forEach((box) => box.addEventListener("click", this._handleSwap));
   }
   _handleSwap(event) {
-    let targetId = event.target.id;
-    let value = document.getElementById(targetId).children[0];
+    console.log(event.target);
+    //let targetId = event.target.id;
+    //console.log(document.getElementById(targetId).children[0]);
+    //let value = document.getElementById(targetId).children[0]; //just read the text value
+    let value = event.target;
+
+    console.log(value.id);
+
     if (this.selectedNums.length === 0) {
       this.selectedNums.push(value);
       value.classList.add("selected");
@@ -35,10 +41,17 @@ export default class FreeSort {
       this.selectedNums = [];
 
       // swap workingArray elements
-      let pos1 = this.workingArray.indexOf(child1.textContent);
+      /*let pos1 = this.workingArray.indexOf(child1.textContent);
       let pos2 = this.workingArray.indexOf(child2.textContent);
       let temp = child1.textContent;
       this.workingArray[pos1] = child2.textContent;
+      this.workingArray[pos2] = temp;
+      console.log(this.workingArray);*/
+      let pos1 = this.workingArray.indexOf(child1.id[8].toString());
+      console.log(pos1);
+      let pos2 = this.workingArray.indexOf(child2.id[8].toString());
+      let temp = child1.id[8].toString();
+      this.workingArray[pos1] = child2.id[8].toString();
       this.workingArray[pos2] = temp;
       console.log(this.workingArray);
 
@@ -46,7 +59,13 @@ export default class FreeSort {
       if (
         JSON.stringify(this.workingArray) === JSON.stringify(this.sortedArray)
       ) {
-        console.log("sorted!");
+        console.log(document.getElementById("followUp" + this.number));
+        document
+          .getElementById("followUp" + this.number)
+          .classList.remove("hidden");
+        document
+          .getElementById("next" + this.number)
+          .classList.remove("hidden");
       }
     }
   }

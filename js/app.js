@@ -42,11 +42,11 @@ export default class App {
       "5"
     );
     this._nextPage = this._nextPage.bind(this);
-    document.querySelector("#next1").addEventListener("click", this._nextPage);
-    document.querySelector("#next2").addEventListener("click", this._nextPage);
-    document.querySelector("#next3").addEventListener("click", this._nextPage);
-    document.querySelector("#next4").addEventListener("click", this._nextPage);
-    document.querySelector("#next5").addEventListener("click", this._nextPage);
+    document.querySelector("#cont1").addEventListener("click", this._nextPage);
+    document.querySelector("#cont2").addEventListener("click", this._nextPage);
+    document.querySelector("#cont3").addEventListener("click", this._nextPage);
+    document.querySelector("#cont4").addEventListener("click", this._nextPage);
+    document.querySelector("#cont5").addEventListener("click", this._nextPage);
     //document.querySelector("#next6").addEventListener("click", this._nextPage);
   }
   _nextPage(event) {

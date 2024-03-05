@@ -11,11 +11,12 @@ export default class RestrictedSort {
       .querySelectorAll(".sort" + this.number)
       .forEach((box) => box.addEventListener("click", this._handleSwap));
     this._nextStep = this._nextStep.bind(this);
-    document.querySelector("#step").addEventListener("click", this._nextStep);
+    document.querySelector("#next5").addEventListener("click", this._nextStep);
     this._toggleSwap = this._toggleSwap.bind(this);
     document
       .querySelector("#toggle")
-      .addEventListener("click", this._toggleSwap);
+      .addEventListener("change", this._toggleSwap);
+
     this.stepsIndex = 0;
     this.posIndex = 1;
     this.swapIndex = 2;
@@ -43,6 +44,11 @@ export default class RestrictedSort {
       if (this.posIndex === this.posUpperBound) {
         // if you are not supposed to swap the current values, move on
         // the steps below are only true for bubble sort
+        document
+          .getElementById(
+            "sort" + this.number + "box" + (this.posUpperBound + 1)
+          )
+          .classList.add("sorted");
         this.posIndex = 1;
         this.swapIndex = 2;
         this.posUpperBound -= 1;
@@ -65,8 +71,6 @@ export default class RestrictedSort {
     } else {
       console.log("you are supposed to swap the current values");
     }
-    console.log(this.posIndex);
-    console.log(this.swapIndex);
   }
   _handleSwap(event) {
     // after x amount of steps, give option to move on
@@ -116,6 +120,7 @@ export default class RestrictedSort {
         console.log(this.steps);
         if (this.stepsIndex === this.steps.length - 1) {
           console.log("sorted!");
+          // turn all the shells into colors
         } else {
           this.stepsIndex += 1;
         }

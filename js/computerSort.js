@@ -10,7 +10,7 @@ export default class ComputerSort {
     this.posUpperBound = 5;
     this._nextStep = this._nextStep.bind(this);
     document
-      .querySelector("#step" + this.number)
+      .querySelector("#next" + this.number)
       .addEventListener("click", this._nextStep);
     document
       .querySelectorAll(".sort" + this.number)
