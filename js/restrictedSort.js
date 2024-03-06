@@ -1,3 +1,4 @@
+// rename to bubble sort
 export default class RestrictedSort {
   constructor(steps, workingArray, number) {
     // add markersteps (have markers follow a predetermined order)
@@ -44,11 +45,18 @@ export default class RestrictedSort {
       if (this.posIndex === this.posUpperBound) {
         // if you are not supposed to swap the current values, move on
         // the steps below are only true for bubble sort
-        document
+        /* document
           .getElementById(
             "sort" + this.number + "box" + (this.posUpperBound + 1)
           )
-          .classList.add("sorted");
+          .classList.add("sorted");*/
+        document
+          .getElementById("sort5pic" + (this.posUpperBound + 1))
+          .classList.add("hidden");
+        document
+          .getElementById("sort5pic" + (this.posUpperBound + 1) + "color")
+          .classList.remove("hidden");
+        // change here
         this.posIndex = 1;
         this.swapIndex = 2;
         this.posUpperBound -= 1;
@@ -61,13 +69,15 @@ export default class RestrictedSort {
       );
       posElem.classList.remove("posBox");
       newPosElem.classList.add("posBox");
-      if (this.showSwap) {
-        let newSwapElem = document.getElementById(
-          "sort" + this.number + "box" + this.swapIndex
-        );
-        swapElem.classList.remove("swapBox");
-        newSwapElem.classList.add("swapBox");
-      }
+      //if (this.showSwap) {
+      let newSwapElem = document.getElementById(
+        "sort" + this.number + "box" + this.swapIndex
+      );
+      //swapElem.classList.remove("swapBox"); // put img in swap elem into a variable box
+      //newSwapElem.classList.add("swapBox"); // change after swapping as well
+
+      document.getElementById("varBox5").src = newSwapElem.children[0].src;
+      // }
     } else {
       console.log("you are supposed to swap the current values");
     }
@@ -117,11 +127,23 @@ export default class RestrictedSort {
         this.selectedNums[0].classList.remove("selected");
         this.selectedNums[1].classList.remove("selected");
         this.selectedNums = [];
+        document.getElementById("varBox5").src = child1.src;
 
         console.log(this.steps);
         if (this.stepsIndex === this.steps.length - 1) {
           console.log("sorted!");
-          // turn all the shells into colors
+          for (let i = 1; i <= 6; i++) {
+            document.getElementById("sort5pic" + i).classList.add("hidden");
+            document
+              .getElementById("sort5pic" + i + "color")
+              .classList.remove("hidden");
+            document
+              .getElementById("sort" + this.number + "box" + i)
+              .classList.remove("hideBox");
+          }
+          document
+            .getElementById("sort" + this.number + "box" + this.posIndex)
+            .classList.remove("posBox");
         } else {
           this.stepsIndex += 1;
         }

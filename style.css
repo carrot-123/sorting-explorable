@@ -181,6 +181,14 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.varBox {
+  width: 150px;
+  height: 150px;
+  border-radius: 2rem;
+  border: 1px solid red;
+  animation: fadein 0.5s;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
