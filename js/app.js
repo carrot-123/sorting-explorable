@@ -6,7 +6,7 @@ export default class App {
     this.sortedArray1 = ["1", "2", "3"];
     this.workingArray1 = ["2", "1", "3"];
     this.sortedArray2 = ["1", "2", "3"];
-    this.workingArray2 = ["3", "2", "1"];
+    this.workingArray2 = ["6", "3", "4", "5", "2", "1"]; // change the order
     this.sortedArray = ["1", "2", "3", "4", "5", "6"];
     this.workingArray = ["6", "3", "4", "5", "2", "1"];
     this.steps = [
@@ -32,7 +32,7 @@ export default class App {
     this._freeSort1 = new FreeSort(this.sortedArray, this.workingArray, "3");
     this._freeSort2 = new ComputerSort(
       this.sortedArray,
-      this.workingArray,
+      this.workingArray2,
       "4"
     );
     //this._freeSort3 = new RestrictedSort(this.steps, this.workingArray3, "3");

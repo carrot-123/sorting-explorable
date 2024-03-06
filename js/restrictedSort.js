@@ -32,11 +32,11 @@ export default class RestrictedSort {
     let posElem = document.getElementById(
       "sort" + this.number + "box" + this.posIndex
     );
-    let posVal = posElem.children[0].textContent;
+    let posVal = posElem.children[0].id[8];
     let swapElem = document.getElementById(
       "sort" + this.number + "box" + this.swapIndex
     );
-    let swapVal = swapElem.children[0].textContent;
+    let swapVal = swapElem.children[0].id[8];
     if (
       this.steps[this.stepsIndex].indexOf(posVal) === -1 ||
       this.steps[this.stepsIndex].indexOf(swapVal) === -1
@@ -77,14 +77,16 @@ export default class RestrictedSort {
 
     let posVal = document.getElementById(
       "sort" + this.number + "box" + this.posIndex
-    ).children[0].textContent;
+    ).children[0].id[8];
+
     let swapVal = document.getElementById(
       "sort" + this.number + "box" + this.swapIndex
-    ).children[0].textContent;
+    ).children[0].id[8];
 
     if (this.stepsIndex < this.steps.length) {
-      let targetId = event.target.id;
-      let value = document.getElementById(targetId).children[0];
+      //let targetId = event.target.id;
+      //let value = document.getElementById(targetId).children[0];
+      let value = event.target;
       if (this.selectedNums.length === 0) {
         this.selectedNums.push(value);
         value.classList.add("selected");
@@ -93,10 +95,9 @@ export default class RestrictedSort {
         value.classList.remove("selected");
       } else if (
         // need to make sure that the current positions have been selected
-        this.steps[this.stepsIndex].indexOf(
-          this.selectedNums[0].textContent
-        ) === -1 ||
-        this.steps[this.stepsIndex].indexOf(value.textContent) === -1
+        this.steps[this.stepsIndex].indexOf(this.selectedNums[0].id[8]) ===
+          -1 ||
+        this.steps[this.stepsIndex].indexOf(value.id[8]) === -1
       ) {
         this.selectedNums[0].classList.remove("selected");
 

@@ -20,21 +20,29 @@ button {
   justify-self: center;
 }
 .box {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #f80000;
+  width: 150px;
+  height: 150px;
+  border-radius: 2rem;
 }
 img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
+  border-radius: 2rem;
+  animation: fadein 0.5s;
+  /*border: 2px solid #080808;*/
 }
 .hidden {
   display: none;
 }
-
+.followUp {
+  animation: fadein 0.5s;
+}
+#followUp3 {
+  animation: fadein 0.5s;
+}
 .hideBox {
-  user-select: none; /* prevent highlighting to see text */
-  background-color: #0d0a0a;
+  /*opacity: 0;*/ /* still want to show outline of box */
+  background-color: #080808; /* might work with png*/
 }
 
 .posBox {
@@ -171,4 +179,13 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

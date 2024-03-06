@@ -59,12 +59,26 @@ export default class FreeSort {
       if (
         JSON.stringify(this.workingArray) === JSON.stringify(this.sortedArray)
       ) {
-        console.log(document.getElementById("followUp" + this.number));
+        // change all to color version
+        for (let i = 1; i <= 6; i++) {
+          /*console.log(i);
+          console.log(document.getElementById("sort3pic" + i));
+          document.getElementById("sort3pic" + i).src =
+            "images/" + i + "_color.png";*/
+          document.getElementById("sort3pic" + i).classList.add("hidden");
+          document
+            .getElementById("sort3pic" + i + "color")
+            .classList.remove("hidden");
+        }
+        document
+          .querySelectorAll(".sort" + this.number)
+          .forEach((box) => box.addEventListener("click", this._handleSwap));
+
         document
           .getElementById("followUp" + this.number)
           .classList.remove("hidden");
         document
-          .getElementById("next" + this.number)
+          .getElementById("cont" + this.number)
           .classList.remove("hidden");
       }
     }

@@ -9,6 +9,7 @@ export default class ComputerSort {
     this.nextIndex = 2;
     this.posUpperBound = 5;
     this._nextStep = this._nextStep.bind(this);
+    this._swap = false;
     document
       .querySelector("#next" + this.number)
       .addEventListener("click", this._nextStep);
@@ -43,8 +44,9 @@ export default class ComputerSort {
     newNextElem.classList.remove("hideBox");
   }
   _handleSwap(event) {
-    let targetId = event.target.id;
-    let value = document.getElementById(targetId).children[0];
+    //let targetId = event.target.id;
+    //let value = document.getElementById(targetId).children[0];
+    let value = event.target;
     if (this.selectedNums.length === 0) {
       this.selectedNums.push(value);
       value.classList.add("selected");
@@ -65,10 +67,17 @@ export default class ComputerSort {
       this.selectedNums = [];
 
       // swap workingArray elements
-      let pos1 = this.workingArray.indexOf(child1.textContent);
+      /*let pos1 = this.workingArray.indexOf(child1.textContent);
       let pos2 = this.workingArray.indexOf(child2.textContent);
       let temp = child1.textContent;
       this.workingArray[pos1] = child2.textContent;
+      this.workingArray[pos2] = temp;
+      console.log(this.workingArray);*/
+      let pos1 = this.workingArray.indexOf(child1.id[8].toString());
+      console.log(pos1);
+      let pos2 = this.workingArray.indexOf(child2.id[8].toString());
+      let temp = child1.id[8].toString();
+      this.workingArray[pos1] = child2.id[8].toString();
       this.workingArray[pos2] = temp;
       console.log(this.workingArray);
 
@@ -76,7 +85,26 @@ export default class ComputerSort {
       if (
         JSON.stringify(this.workingArray) === JSON.stringify(this.sortedArray)
       ) {
-        console.log("sorted!");
+        console.log(document.getElementById("followUp" + this.number));
+        for (let i = 1; i <= 6; i++) {
+          /*console.log(i);
+          console.log(document.getElementById("sort3pic" + i));
+          document.getElementById("sort3pic" + i).src =
+            "images/" + i + "_color.png";*/
+          document.getElementById("sort4pic" + i).classList.add("hidden");
+          document
+            .getElementById("sort4pic" + i + "color")
+            .classList.remove("hidden");
+          document
+            .getElementById("sort" + this.number + "box" + i)
+            .classList.remove("hideBox");
+        }
+        document
+          .getElementById("followUp" + this.number)
+          .classList.remove("hidden");
+        document
+          .getElementById("cont" + this.number)
+          .classList.remove("hidden");
       }
     }
   }
