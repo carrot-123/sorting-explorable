@@ -8,8 +8,10 @@
   <body>
     <main class="titlePage" id="page1">
       <div class="widthContainer">
-        <h1>Sorting with Computers</h1>
-        <button type="submit" id="cont1">Start</button>
+        <div class="content">
+          <h1>Sorting with Computers</h1>
+          <button type="submit" id="cont1">Start</button>
+        </div>
       </div>
     </main>
     <main id="page2" class="hidden">
@@ -20,12 +22,12 @@
             If you've ever arranged your books by color, grouped poker cards by
             suits, or displayed your seashell collection by size, then you have
             sorted! Sorting simply refers to re-arranging elements in a certain
-            order. Here's a quick example of why computers need to sort: Try
-            finding and clicking on "aadvark" for both computers screens below.
-            On which computer was it easier to find?
+            order, and it is something computers have to do very often. [TODO:
+            Provide visual examples of sorting, and an example of why computers
+            need to sort]
           </div>
         </div>
-        <button type="submit" id="cont2">Okay</button>
+        <button type="submit" id="cont2">Continue</button>
       </div>
     </main>
     <main id="page3" class="hidden">
@@ -34,9 +36,8 @@
         <h1>How we Sort</h1>
         <div class="content">
           <div>
-            Sorting *seems* straightforward. Try sorting the seashells below by
-            clicking on two shells to swap their places. Sort from smallest to
-            biggest.
+            Sorting *seems* straightforward. Try sorting the seashells below
+            from smallest to biggest. Click on two shells to swap their places.
           </div>
           <div class="sortingDiv">
             <div class="sort3 box" id="sort3box1">
@@ -91,9 +92,9 @@
 
           <div class="hidden followUp" id="followUp3">
             Nice job! For computers, however, sorting is not so trivial.
-            Computers don't have eyes like we do, so they can't see the
-            seashells all at once. Rather, they can only focus on one or two at
-            a time. Let's now try sorting as though we are a computer.
+            Computers don't have eyes like we do, so they can't see all the
+            seashells at once. Let's now try sorting as though we were a
+            computer.
           </div>
         </div>
 
@@ -107,12 +108,10 @@
         <h1>How computers sort</h1>
         <div class="content">
           <div>
-            Here, you can only see two seashells at a time: the shell in the
-            spot you are focusing on, and the shell in the spot after it. At any
-            moment, you can swap two shells. To focus on the next shell, press
-            "Next". If you reach the last spot, pressing "Next" will bring you
-            back to first spot. (Hint: You'll most likely have to loop back to
-            the first spot many times.) Try sorting the seashells now!
+            This is how computers "see" things. Click on a box to "look" at a
+            seashell. Click on the shell again and on another box to swap their
+            places. Try to sort this new set of shells in as few looks and swaps
+            as possible!
           </div>
           <div class="sortingDiv">
             <div class="sort4 box hideBox" id="sort4box1">
@@ -164,12 +163,17 @@
               />
             </div>
           </div>
-          <div id="flips4">Number of flips: 0</div>
+          <div id="looks4">Number of looks: 0</div>
           <div id="swaps4">Number of swaps: 0</div>
           <div class="hidden followUp" id="followUp4">
-            Nice! As you can see, computers sort differently than humans! Let's
-            explore three different sorting algorithms we can use to arrange our
-            seashells.
+            Nice job! What are some strategies you used when deciding whether to
+            swap or look at a shell? Chances are, the strategies you used are
+            similar to what a computer would use. <br />
+            <br />
+            Computers must follow a set of rules that determine a specific order
+            of "looking" and "swapping" (aka an algorithm). There exist many
+            different sorting algorithms, each with their own unique strategy.
+            Let's take a look at three of them, and compare how well you did!
           </div>
           <button type="submit" id="cont4">Continue</button>
         </div>
@@ -181,12 +185,16 @@
         <h1>Bubble Sort</h1>
         <div class="content">
           <div>
-            First up, it's bubble sort! The set-up is exactly the same as the
-            previous sort: you can see the shell in the current spot and the
-            shell in the next spot. At anytime, you can swap shells. Follow the
-            alogirthm (rules) of bubble sort step-by-step to sort all the
-            seashells. (The spot you are focusing on is marked in red. Toggling
-            will mark in green which spot you can swap shells with.)
+            First up, it's bubble sort! All shells are visible so that you can
+            see the bigger picture. The shell you are currently looking at is
+            <mark class="currentShell">highlighted</mark>. Sorting algorithms
+            tend to look at the shells in order, so pressing next will look at
+            the next shell. Additionally, computers, like us, can memorize
+            certain shells it has looked at. In this algorithm, you can look
+            ahead to the <mark class="nextShell">next shell</mark>, memorize it,
+            and compare it to your
+            <mark class="currentShell">current shell</mark>. Follow the bubble
+            sort algorithm step-by-step to sort all the seashells.
           </div>
           <div class="splitDiv">
             <div class="algorithm">
@@ -196,13 +204,15 @@
               </div>
               <div>
                 <ol>
-                  <li>
-                    If the shell in the current spot is bigger than the shell in
-                    the next spot, then swap them
+                  <li id="sort5step1">
+                    If the shell you are looking at is bigger than the next
+                    shell, swap them
                   </li>
-                  <li>Move on to the next shell</li>
+                  <li id="sort5step2">Look at the next shell</li>
                 </ol>
               </div>
+              <div id="looks5">Number of looks: 2</div>
+              <div id="swaps5">Number of swaps: 0</div>
             </div>
             <div class="sortSide">
               <div class="variable">
@@ -266,7 +276,7 @@
           </div>
         </div>
 
-        <button type="submit" id="cont5">Okay, I think I got it</button>
+        <button type="submit" id="cont5" class="hidden">Continue</button>
       </div>
     </main>
     <main id="page10" class="hidden">

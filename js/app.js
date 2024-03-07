@@ -1,5 +1,5 @@
 import FreeSort from "./freeSort.js";
-import RestrictedSort from "./restrictedSort.js";
+import BubbleSort from "./bubbleSort.js";
 import ComputerSort from "./computerSort.js";
 export default class App {
   constructor() {
@@ -36,7 +36,7 @@ export default class App {
       "4"
     );
     //this._freeSort3 = new RestrictedSort(this.steps, this.workingArray3, "3");
-    this._bubbleSort = new RestrictedSort(
+    this._bubbleSort = new BubbleSort(
       this.bubbleSortSteps,
       this.workingArray,
       "5"

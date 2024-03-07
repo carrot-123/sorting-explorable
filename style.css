@@ -80,7 +80,8 @@ main {
 .widthContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+
   width: 100%;
   padding-left: 15%;
   padding-right: 15%;
@@ -200,7 +201,35 @@ input:checked + .slider:before {
   animation: fadein 0.5s;
   object-fit: contain;
 }
+.currentShell {
+  background-color: #f0a7a1;
+  border-radius: 0.5rem;
+}
+.nextShell {
+  border-radius: 0.5rem;
+  border: 2px solid #f0a7a1;
+  background-color: white;
+}
 
+.highlight {
+  animation: flash 1.2s;
+}
+
+@keyframes flash {
+  0% {
+    background-color: white;
+    border-radius: 0.5rem;
+  }
+  50% {
+    background-color: #94c8f2;
+    border-radius: 0.5rem;
+  }
+
+  100% {
+    background-color: white;
+    border-radius: 0.5rem;
+  }
+}
 @keyframes fadein {
   from {
     opacity: 0;
