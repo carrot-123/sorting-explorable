@@ -13,10 +13,10 @@ export default class RestrictedSort {
       .forEach((box) => box.addEventListener("click", this._handleSwap));
     this._nextStep = this._nextStep.bind(this);
     document.querySelector("#next5").addEventListener("click", this._nextStep);
-    this._toggleSwap = this._toggleSwap.bind(this);
+    /*this._toggleSwap = this._toggleSwap.bind(this);
     document
       .querySelector("#toggle")
-      .addEventListener("change", this._toggleSwap);
+      .addEventListener("change", this._toggleSwap);*/
 
     this.stepsIndex = 0;
     this.posIndex = 1;
@@ -127,7 +127,10 @@ export default class RestrictedSort {
         this.selectedNums[0].classList.remove("selected");
         this.selectedNums[1].classList.remove("selected");
         this.selectedNums = [];
-        document.getElementById("varBox5").src = child1.src;
+        document.getElementById("varBox5").src = document.getElementById(
+          "sort" + this.number + "box" + this.swapIndex
+        ).children[0].src;
+        // get next value
 
         console.log(this.steps);
         if (this.stepsIndex === this.steps.length - 1) {

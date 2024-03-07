@@ -42,11 +42,12 @@ img {
 }
 .hideBox {
   /*opacity: 0;*/ /* still want to show outline of box */
-  background-color: #080808; /* might work with png*/
+  background-color: #000000; /* might work with png*/
+  opacity: 20%;
 }
 
 .posBox {
-  background-color: #ff7a7a;
+  background-color: #f0a7a1;
 }
 
 .swapBox {
@@ -54,7 +55,7 @@ img {
 }
 
 .selected {
-  background-color: aqua;
+  border: 4px solid #80bee2;
 }
 .sorted {
   background-color: aquamarine;
@@ -74,15 +75,15 @@ img {
 main {
   display: flex;
   justify-content: center;
-  padding: 2rem 2rem;
+  padding-top: 2rem;
 }
 .widthContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex-grow: 1;
-  padding-left: 16rem;
-  padding-right: 16rem;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 #page3.hidden {
@@ -91,8 +92,8 @@ main {
 
 .sortingDiv {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-around;
+  gap: 1rem;
 }
 
 .content {
@@ -104,7 +105,7 @@ main {
 }
 .splitDiv {
   display: flex;
-  gap: 8rem;
+  gap: 4rem;
 }
 .sortSide {
   display: flex;
@@ -112,10 +113,9 @@ main {
   align-items: center;
   padding-top: 2rem;
   gap: 2rem;
-  width: fit-content;
 }
 .algorithm {
-  width: 40%;
+  min-width: 30%;
 }
 /* The switch - the box around the slider */
 .switch {
@@ -181,12 +181,24 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.variable {
+  align-self: flex-end;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
 .varBox {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   border-radius: 2rem;
-  border: 1px solid red;
+  border: 2px solid #f0a7a1;
   animation: fadein 0.5s;
+  object-fit: contain;
 }
 
 @keyframes fadein {
