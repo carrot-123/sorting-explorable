@@ -219,7 +219,7 @@
                 <div>The next shell:</div>
                 <img src="images/3.png" class="varBox" id="varBox5" />
               </div>
-              <label class="switch" id="toggle">
+              <label class="switch" id="toggle5">
                 <input type="checkbox" />
                 <span class="slider round"></span>
               </label>
@@ -280,26 +280,117 @@
           </div>
         </div>
 
-        <button type="submit" id="cont5" class="hidden">Continue</button>
+        <button type="submit" id="cont5">Continue</button>
       </div>
     </main>
-    <main id="page10" class="hidden">
-      <h1>sort case 3</h1>
-      <h1>sort case 1</h1>
-      <div class="sort1" id="box1"><span>2</span></div>
-      <div class="sort1" id="box2"><span>1</span></div>
-      <div class="sort1" id="box3"><span>3</span></div>
-      <h1>sort case 2</h1>
-      <div class="sort2" id="box4"><span>3</span></div>
-      <div class="sort2" id="box5"><span>2</span></div>
-      <div class="sort2" id="box6"><span>1</span></div>
-      <div class="sort3" id="box7"><span>2</span></div>
-      <div class="sort3" id="box8"><span>3</span></div>
-      <div class="sort3" id="box9"><span>1</span></div>
+    <main id="page6" class="hidden">
+      <div class="widthContainer">
+        <h1>Insertion Sort</h1>
+        <div class="content">
+          <div>
+            First up, it's bubble sort! All shells are visible so that you can
+            see the bigger picture. The shell you are currently looking at is
+            <mark class="currentShell">highlighted</mark>. Sorting algorithms
+            tend to look at the shells in order, so pressing next will look at
+            the next shell. Additionally, computers, like us, can memorize
+            certain shells it has looked at. In this algorithm, you can look
+            ahead to the <mark class="nextShell">next shell</mark>, memorize it,
+            and compare it to your
+            <mark class="currentShell">current shell</mark>. Follow the bubble
+            sort algorithm step-by-step to sort all the seashells.
+          </div>
+          <div class="splitDiv">
+            <div class="algorithm">
+              <h2>Algorithm</h2>
+              <div>
+                For as long as the seashells are not sorted, do the following:
+              </div>
+              <div>
+                <ol>
+                  <li id="sort6step1">
+                    If the shell you are looking at is bigger than the next
+                    shell, swap them
+                  </li>
+                  <li id="sort6step2">Look at the next shell</li>
+                </ol>
+              </div>
+              <div id="looks6">Number of looks: 2</div>
+              <div id="swaps6">Number of swaps: 0</div>
+            </div>
+            <div class="sortSide">
+              <div class="variable">
+                <div>The leftmost unsorted shell:</div>
+                <img src="images/6.png" class="varBox" id="varBox6" />
+              </div>
+              <div class="variable">
+                <div>The smallest unsorted shell:</div>
+                <img src="images/6.png" class="varBox" id="varBox62" />
+              </div>
+              <label class="switch" id="toggle6">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+
+              <div class="sortingDiv">
+                <div class="sort6 box" id="sort6box1">
+                  <img src="images/6.png" id="sort6pic6" />
+                  <img
+                    src="images/1_color.png"
+                    id="sort6pic1color"
+                    class="hidden"
+                  />
+                </div>
+                <div class="sort6 box hideBox" id="sort6box2">
+                  <img src="images/3.png" id="sort6pic3" />
+                  <img
+                    src="images/2_color.png"
+                    id="sort6pic2color"
+                    class="hidden"
+                  />
+                </div>
+                <div class="sort6 box hideBox" id="sort6box3">
+                  <img src="images/4.png" id="sort6pic4" />
+                  <img
+                    src="images/3_color.png"
+                    id="sort6pic3color"
+                    class="hidden"
+                  />
+                </div>
+                <div class="sort6 box hideBox" id="sort6box4">
+                  <img src="images/5.png" id="sort6pic5" />
+                  <img
+                    src="images/4_color.png"
+                    id="sort6pic4color"
+                    class="hidden"
+                  />
+                </div>
+                <div class="sort6 box hideBox" id="sort6box5">
+                  <img src="images/2.png" id="sort6pic2" />
+                  <img
+                    src="images/5_color.png"
+                    id="sort6pic5color"
+                    class="hidden"
+                  />
+                </div>
+                <div class="sort6 box hideBox" id="sort6box6">
+                  <img src="images/1.png" id="sort6pic1" />
+                  <img
+                    src="images/6_color.png"
+                    id="sort6pic6color"
+                    class="hidden"
+                  />
+                </div>
+              </div>
+
+              <button type="submit" id="next6">Next</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" id="cont6">Continue</button>
+      </div>
     </main>
-    <main id="page3" class="hidden">
-      <h1>hi</h1>
-    </main>
+
     <script type="module" src="js/index.js"></script>
   </body>
 </html>

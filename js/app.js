@@ -1,5 +1,6 @@
 import FreeSort from "./freeSort.js";
 import BubbleSort from "./bubbleSort.js";
+import InsertionSort from "./insertionSort.js";
 import ComputerSort from "./computerSort.js";
 export default class App {
   constructor() {
@@ -27,6 +28,12 @@ export default class App {
       ["3", "1"],
       ["1", "2"],
     ];
+    this.insertionSortSteps = [
+      ["1", "6"],
+      ["2", "3"],
+      ["3", "4"],
+      ["4", "5"],
+    ];
 
     this.workingArray3 = ["3", "1", "2"];
     this._freeSort1 = new FreeSort(this.sortedArray, this.workingArray, "3");
@@ -41,12 +48,18 @@ export default class App {
       this.workingArray,
       "5"
     );
+    this._insertionSort = new InsertionSort(
+      this.insertionSortSteps,
+      this.workingArray,
+      "6"
+    );
     this._nextPage = this._nextPage.bind(this);
     document.querySelector("#cont1").addEventListener("click", this._nextPage);
     document.querySelector("#cont2").addEventListener("click", this._nextPage);
     document.querySelector("#cont3").addEventListener("click", this._nextPage);
     document.querySelector("#cont4").addEventListener("click", this._nextPage);
     document.querySelector("#cont5").addEventListener("click", this._nextPage);
+
     //document.querySelector("#next6").addEventListener("click", this._nextPage);
   }
   _nextPage(event) {
