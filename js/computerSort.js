@@ -5,9 +5,9 @@ export default class ComputerSort {
     this.workingArray = workingArray;
     this.number = number;
     this._handleSwap = this._handleSwap.bind(this);
-    this.posIndex = 1;
-    this.nextIndex = 2;
-    this.posUpperBound = 5;
+    //this._posIndex = 1;
+    //this._nextIndex = 2;
+    //this.posUpperBound = 5;
     //this._nextStep = this._nextStep.bind(this);
     this._swap = false;
     this._prevVal = null;
@@ -25,23 +25,23 @@ export default class ComputerSort {
   /*_nextStep(event) {
     this.selectedNums = [];
     let posElem = document.getElementById(
-      "sort" + this.number + "box" + this.posIndex
+      "sort" + this.number + "box" + this._posIndex
     );
     let nextElem = document.getElementById(
-      "sort" + this.number + "box" + this.nextIndex
+      "sort" + this.number + "box" + this._nextIndex
     );
-    if (this.posIndex === this.posUpperBound) {
-      this.posIndex = 1;
-      this.nextIndex = 2;
+    if (this._posIndex === this.posUpperBound) {
+      this._posIndex = 1;
+      this._nextIndex = 2;
     } else {
-      this.posIndex += 1;
-      this.nextIndex += 1;
+      this._posIndex += 1;
+      this._nextIndex += 1;
     }
     let newPosElem = document.getElementById(
-      "sort" + this.number + "box" + this.posIndex
+      "sort" + this.number + "box" + this._posIndex
     );
     let newNextElem = document.getElementById(
-      "sort" + this.number + "box" + this.nextIndex
+      "sort" + this.number + "box" + this._nextIndex
     );
     posElem.classList.add("hideBox");
     nextElem.classList.add("hideBox");

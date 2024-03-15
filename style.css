@@ -13,6 +13,9 @@ body {
 h1 {
   margin: 0rem;
 }
+h2 {
+  margin: 0rem;
+}
 button {
   width: 8rem;
   height: 4rem;
@@ -20,13 +23,13 @@ button {
   justify-self: center;
 }
 .box {
-  width: 150px;
-  height: 150px;
+  width: 8rem;
+  height: 8rem;
   border-radius: 2rem;
 }
 img {
-  width: 150px;
-  height: 150px;
+  width: 8rem;
+  height: 8rem;
   border-radius: 2rem;
   animation: fadein 0.5s;
   /*border: 2px solid #080808;*/
@@ -43,7 +46,10 @@ img {
 .hideBox {
   /*opacity: 0;*/ /* still want to show outline of box */
   background-color: #000000; /* might work with png*/
-  opacity: 20%;
+  opacity: 40%;
+}
+.hideBox > .selected {
+  border: 4px solid #025586;
 }
 
 .posBox {
@@ -56,7 +62,7 @@ img {
 }
 
 .selected {
-  border: 4px solid #80bee2;
+  border: 4px solid rgb(128, 190, 226);
 }
 .sorted {
   background-color: aquamarine;
@@ -79,13 +85,22 @@ main {
   padding-top: 2rem;
 }
 .widthContainer {
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   width: 100%;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+.statsContainer.hidden {
+  display: none;
+}
+.tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 #page3.hidden {
@@ -107,17 +122,16 @@ main {
 }
 .splitDiv {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
 }
 .sortSide {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2rem;
   gap: 2rem;
 }
 .algorithm {
-  min-width: 30%;
+  min-width: 20rem;
 }
 /* The switch - the box around the slider */
 .switch {
@@ -195,8 +209,8 @@ input:checked + .slider:before {
 }
 
 .varBox {
-  width: 110px;
-  height: 110px;
+  width: 7rem;
+  height: 7rem;
   border-radius: 2rem;
   border: 2px solid #f0a7a1;
   animation: fadein 0.5s;
@@ -214,6 +228,17 @@ input:checked + .slider:before {
 
 .highlight {
   animation: flash 1.2s;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.statsBox {
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes flash {

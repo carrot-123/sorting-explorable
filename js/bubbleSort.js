@@ -9,11 +9,11 @@ export default class BubbleSort {
     this._sorted = false;
     this._swapped = false;
 
-    this.stepsIndex = 0;
-    this.posIndex = 1;
-    this.swapIndex = 2;
-    this.posUpperBound = 5;
-    this.showAll = false;
+    this._stepsIndex = 0;
+    this._posIndex = 1;
+    this._swapIndex = 2;
+    this._posUpperBound = 5;
+    this._showAll = false;
 
     this._handleSwap = this._handleSwap.bind(this);
     document
@@ -29,68 +29,69 @@ export default class BubbleSort {
       .addEventListener("change", this._toggleShowAll);
 
     document
-      .getElementById("sort" + this.number + "box" + this.posIndex)
+      .getElementById("sort" + this.number + "box" + this._posIndex)
       .classList.add("posBox");
   }
   _nextStep() {
     // pressing next
     this.selectedNums = [];
     let posElem = document.getElementById(
-      "sort" + this.number + "box" + this.posIndex
+      "sort" + this.number + "box" + this._posIndex
     );
     let posVal = posElem.children[0].id[8];
     let swapElem = document.getElementById(
-      "sort" + this.number + "box" + this.swapIndex
+      "sort" + this.number + "box" + this._swapIndex
     );
     let swapVal = swapElem.children[0].id[8];
     if (
       // if you are not supposed to swap the shells
-      this.steps[this.stepsIndex].indexOf(posVal) === -1 ||
-      this.steps[this.stepsIndex].indexOf(swapVal) === -1
+      this.steps[this._stepsIndex].indexOf(posVal) === -1 ||
+      this.steps[this._stepsIndex].indexOf(swapVal) === -1
     ) {
-      if (this.posIndex === this.posUpperBound) {
+      if (this._posIndex === this._posUpperBound) {
         // if we reached the end of the array
         // reaching the end of an array in bubble sort means that the last element is in its correct place
         document
           .getElementById(
-            "sort" + this.number + "pic" + (this.posUpperBound + 1)
+            "sort" + this.number + "pic" + (this._posUpperBound + 1)
           )
           .classList.add("hidden");
         document
           .getElementById(
-            "sort" + this.number + "pic" + (this.posUpperBound + 1) + "color"
+            "sort" + this.number + "pic" + (this._posUpperBound + 1) + "color"
           )
           .classList.remove("hidden");
         posElem.classList.add(".sorted");
 
-        this.posIndex = 1;
-        this.swapIndex = 2;
-        this.posUpperBound -= 1;
+        this._posIndex = 1;
+        this._swapIndex = 2;
+        this._posUpperBound -= 1;
         this._numLooks += 2;
         document.getElementById("looks" + this.number).textContent =
           "Number of looks: " + this._numLooks;
       } else {
-        this.posIndex += 1;
-        this.swapIndex += 1;
+        this._posIndex += 1;
+        this._swapIndex += 1;
         this._numLooks += 1;
         document.getElementById("looks" + this.number).textContent =
           "Number of looks: " + this._numLooks;
       }
       let newPosElem = document.getElementById(
-        "sort" + this.number + "box" + this.posIndex
+        "sort" + this.number + "box" + this._posIndex
       );
       posElem.classList.remove("posBox");
       newPosElem.classList.add("posBox");
       let newSwapElem = document.getElementById(
-        "sort" + this.number + "box" + this.swapIndex
+        "sort" + this.number + "box" + this._swapIndex
       );
       document.getElementById("varBox" + this.number).src =
         newSwapElem.children[0].src;
       this._swapped = false;
-      if (!this.showAll) {
+      if (!this._showAll) {
         posElem.classList.add("hideBox");
         swapElem.classList.remove("hideBox");
         newSwapElem.classList.remove("hideBox");
+        newPosElem.classList.remove("hideBox");
       }
     } else if (!this._sorted) {
       // if you are supposed to swap the current values
@@ -108,12 +109,12 @@ export default class BubbleSort {
     // after x amount of steps, give option to move on
     if (!this._sorted) {
       let posVal = document.getElementById(
-        "sort" + this.number + "box" + this.posIndex
+        "sort" + this.number + "box" + this._posIndex
       ).children[0].id[8];
       let swapVal = document.getElementById(
-        "sort" + this.number + "box" + this.swapIndex
+        "sort" + this.number + "box" + this._swapIndex
       ).children[0].id[8];
-      if (this.stepsIndex < this.steps.length) {
+      if (this._stepsIndex < this.steps.length) {
         let value = event.target;
         console.log("value:");
         console.log(value);
@@ -130,14 +131,14 @@ export default class BubbleSort {
         } else if (
           // if they are trying to perform an invalid move (either swapping wrong shells or not pressing next)
           this._swapped ||
-          this.steps[this.stepsIndex].indexOf(this.selectedNums[0].id[8]) ===
+          this.steps[this._stepsIndex].indexOf(this.selectedNums[0].id[8]) ===
             -1 ||
-          this.steps[this.stepsIndex].indexOf(value.id[8]) === -1
+          this.steps[this._stepsIndex].indexOf(value.id[8]) === -1
         ) {
           if (!this._sorted) {
             if (
               // if they already swapped the correct elements but they are not pressing next (trying to keep swapping)
-              this.steps[this.stepsIndex].indexOf(posVal) === -1
+              this.steps[this._stepsIndex].indexOf(posVal) === -1
             ) {
               document
                 .getElementById("sort" + this.number + "step2")
@@ -164,8 +165,8 @@ export default class BubbleSort {
           console.log("invalid move");
           this.selectedNums = [];
         } else if (
-          this.steps[this.stepsIndex].indexOf(posVal) > -1 &&
-          this.steps[this.stepsIndex].indexOf(swapVal) > -1
+          this.steps[this._stepsIndex].indexOf(posVal) > -1 &&
+          this.steps[this._stepsIndex].indexOf(swapVal) > -1
         ) {
           // if they are swapping the correct shells, perform the swap
           this.selectedNums.push(value);
@@ -180,7 +181,7 @@ export default class BubbleSort {
           this.selectedNums = [];
           document.getElementById("varBox" + this.number).src =
             document.getElementById(
-              "sort" + this.number + "box" + this.swapIndex
+              "sort" + this.number + "box" + this._swapIndex
             ).children[0].src;
           this._numSwaps += 1;
           document.getElementById("swaps" + this.number).textContent =
@@ -188,7 +189,7 @@ export default class BubbleSort {
           this._swapped = true;
 
           console.log(this.steps);
-          if (this.stepsIndex === this.steps.length - 1) {
+          if (this._stepsIndex === this.steps.length - 1) {
             // if the array is sorted
             this._sorted = true;
             console.log("sorted!");
@@ -204,12 +205,12 @@ export default class BubbleSort {
                 .classList.remove("hideBox");
             }
             document
-              .getElementById("sort" + this.number + "box" + this.posIndex)
+              .getElementById("sort" + this.number + "box" + this._posIndex)
               .classList.remove("posBox");
           } else {
             // if the array is not yet sorted, continue to the next step
             console.log("here");
-            this.stepsIndex += 1;
+            this._stepsIndex += 1;
           }
         } else {
           console.log("sadge");
@@ -219,19 +220,19 @@ export default class BubbleSort {
     }
   }
   _toggleShowAll() {
-    this.showAll = !this.showAll;
+    this._showAll = !this._showAll;
     let swapElem = document.getElementById(
-      "sort" + this.number + "box" + this.swapIndex
+      "sort" + this.number + "box" + this._swapIndex
     );
     let posElem = document.getElementById(
-      "sort" + this.number + "box" + this.posIndex
+      "sort" + this.number + "box" + this._posIndex
     );
-    if (this.showAll) {
+    if (this._showAll) {
       document
         .querySelectorAll(".sort" + this.number)
         .forEach((box) => box.classList.remove("hideBox"));
     } else {
-      for (let i = 1; i <= this.posUpperBound + 1; i++) {
+      for (let i = 1; i <= this._posUpperBound + 1; i++) {
         document
           .getElementById("sort" + this.number + "box" + i)
           .classList.add("hideBox");
