@@ -36,6 +36,12 @@ export default class SelectionSort {
   }
   _nextStep() {
     // pressing next
+    for (let i = 1; i <= 6; i++) {
+      document
+        .getElementById("sort" + this.number + "pic" + i)
+        .classList.remove("selected");
+    }
+
     this.selectedNums = [];
     let posElem = document.getElementById(
       "sort" + this.number + "box" + this._posIndex
@@ -51,21 +57,20 @@ export default class SelectionSort {
     );
     let smallestVal = smallestElem.children[0].id[8];
     if (!this._sorted) {
-      if (this._posIndex === this._posUpperBound - 1) {
+      if (this._posIndex + 1 >= this._posUpperBound) {
         this._end = true;
       }
-
       if (this._posIndex === this._posUpperBound) {
         // if we reached the end of the array
         // reaching the end of an array in insertion sort means that we want to swap an element
         // after swapping, the beginning of the array will be sorted
+        this._end = true;
 
         if (this._swapped) {
-          console.log("here");
           this._swapped = false;
           this._swapIndex += 1;
           this._posIndex = this._swapIndex;
-
+          console.log(this._posIndex);
           this._numLooks += 1;
           let newSwapElem = document.getElementById(
             "sort" + this.number + "box" + this._swapIndex
@@ -77,9 +82,17 @@ export default class SelectionSort {
             newSwapElem.children[0].src;
           document.getElementById("looks" + this.number).textContent =
             "Number of looks: " + this._numLooks;
-          this._end = false;
+          /*if (newSwapElem.id[8] !== "6") {
+            this._end = false;
+          }*/
         } else {
-          console.log("no next step!!!!!");
+          document
+            .getElementById("sort" + this.number + "step2")
+            .classList.remove("highlight");
+          document.getElementById("sort" + this.number + "step2").offsetWidth;
+          document
+            .getElementById("sort" + this.number + "step2")
+            .classList.add("highlight");
         }
       } else {
         this._posIndex += 1;
@@ -88,7 +101,7 @@ export default class SelectionSort {
         document.getElementById("looks" + this.number).textContent =
           "Number of looks: " + this._numLooks;
       }
-      console.log("setting new posBox");
+
       let newPosElem = document.getElementById(
         "sort" + this.number + "box" + this._posIndex
       );
@@ -96,7 +109,7 @@ export default class SelectionSort {
       newPosElem.classList.add("posBox");
 
       let newPosVal = newPosElem.children[0].id[8];
-      console.log(smallestVal);
+
       let prevSmallestIndex = this._smallestIndex;
       if (newPosVal < smallestVal) {
         document.getElementById("varBox" + this.number + "2").src =
@@ -105,11 +118,11 @@ export default class SelectionSort {
       }
 
       if (!this._showAll) {
-        console.log("sort" + this.number + "box" + this._smallestIndex);
         document
           .getElementById("sort" + this.number + "box" + prevSmallestIndex)
           .classList.add("hideBox");
         posElem.classList.add("hideBox");
+        newPosElem.classList.remove("hideBox");
         swapElem.classList.remove("hideBox");
         document
           .getElementById("sort" + this.number + "box" + this._smallestIndex)
@@ -143,12 +156,14 @@ export default class SelectionSort {
           // if this is the first shell to be selected
           this.selectedNums.push(value);
           value.classList.add("selected");
-          console.log("here!!");
-        } else if (this.selectedNums[0] === value) {
+        } else if (
+          this.selectedNums[0] === value &&
+          value.id[8] !== this.steps[this._stepsIndex][0] &&
+          value.id[8] !== this.steps[this._stepsIndex][1]
+        ) {
           // if the user clicks the same shell, cancel the selection
           this.selectedNums.pop();
           value.classList.remove("selected");
-          console.log("here?");
         } else if (
           // if they are trying to perform an invalid move (either swapping wrong shells or not pressing next)
           this._swapped ||
@@ -157,10 +172,10 @@ export default class SelectionSort {
           this.steps[this._stepsIndex].indexOf(value.id[8]) === -1
         ) {
           if (!this._sorted) {
-            if (
-              // if they already swapped the correct elements but they are not pressing next (trying to keep swapping)
-              this.steps[this._stepsIndex].indexOf(posVal) === -1
-            ) {
+            if (this._end) {
+              this.selectedNums[0].classList.remove("selected");
+
+              this.selectedNums = [];
               document
                 .getElementById("sort" + this.number + "step2")
                 .classList.remove("highlight");
@@ -170,7 +185,6 @@ export default class SelectionSort {
                 .getElementById("sort" + this.number + "step2")
                 .classList.add("highlight");
             } else {
-              // if they are trying to swap the wrong shells
               document
                 .getElementById("sort" + this.number + "step1")
                 .classList.remove("highlight");
@@ -179,22 +193,53 @@ export default class SelectionSort {
               document
                 .getElementById("sort" + this.number + "step1")
                 .classList.add("highlight");
-            }
-          }
+              this.selectedNums[0].classList.remove("selected");
 
-          this.selectedNums[0].classList.remove("selected");
-          console.log("invalid move");
-          this.selectedNums = [];
+              this.selectedNums = [];
+            }
+
+            /*if (
+              // if they already swapped the correct elements but they are not pressing next (trying to keep swapping)
+              //this.steps[this._stepsIndex].indexOf(posVal) === -1
+              this._swapped
+            ) {
+              document
+                .getElementById("sort" + this.number + "step1")
+                .classList.remove("highlight");
+              void document.getElementById("sort" + this.number + "step1")
+                .offsetWidth;
+              document
+                .getElementById("sort" + this.number + "step1")
+                .classList.add("highlight");
+            } else {
+              // if they are trying to swap the wrong shells
+              document
+                .getElementById("sort" + this.number + "step2")
+                .classList.remove("highlight");
+              void document.getElementById("sort" + this.number + "step2")
+                .offsetWidth;
+              document
+                .getElementById("sort" + this.number + "step2")
+                .classList.add("highlight");
+            }*/
+          }
         } else if (
           this.steps[this._stepsIndex].indexOf(this.selectedNums[0].id[8]) >
             -1 &&
           this.steps[this._stepsIndex].indexOf(value.id[8]) > -1
         ) {
           if (!this._end) {
-            console.log("need to reach end first!");
             this.selectedNums[0].classList.remove("selected");
 
             this.selectedNums = [];
+            document
+              .getElementById("sort" + this.number + "step1")
+              .classList.remove("highlight");
+            void document.getElementById("sort" + this.number + "step1")
+              .offsetWidth;
+            document
+              .getElementById("sort" + this.number + "step1")
+              .classList.add("highlight");
           } else {
             // if they are swapping the correct shells, perform the swap
             this.selectedNums.push(value);
@@ -207,19 +252,26 @@ export default class SelectionSort {
             this.selectedNums[0].classList.remove("selected");
             this.selectedNums[1].classList.remove("selected");
             this.selectedNums = [];
+
             /*document.getElementById("varBox" + this.number).src =
             document.getElementById(
               "sort" + this.number + "box" + this._swapIndex
             ).children[0].src;*/
-            this._numSwaps += 1;
-            document.getElementById("swaps" + this.number).textContent =
-              "Number of swaps: " + this._numSwaps;
+            if (
+              this.steps[this._stepsIndex][0] !==
+              this.steps[this._stepsIndex][1]
+            ) {
+              this._numSwaps += 1;
+              document.getElementById("swaps" + this.number).textContent =
+                "Number of swaps: " + this._numSwaps;
+            }
+
             this._swapped = true;
             let swapElem = document.getElementById(
               "sort" + this.number + "box" + this._swapIndex
             );
             swapElem.classList.add(".sorted");
-            console.log("sort" + this.number + "pic" + this._swapIndex);
+
             document
               .getElementById("sort" + this.number + "pic" + this._swapIndex)
               .classList.add("hidden");
@@ -232,21 +284,26 @@ export default class SelectionSort {
             .getElementById("sort" + this.number + "pic" + this._smallestIndex)
             .classList.add("hideBox");*/
             if (!this._showAll) {
-              document
-                .getElementById(
-                  "sort" + this.number + "box" + this._smallestIndex
-                )
-                .classList.add("hideBox");
+              if (
+                this.steps[this._stepsIndex][0] !==
+                this.steps[this._stepsIndex][1]
+              ) {
+                document
+                  .getElementById(
+                    "sort" + this.number + "box" + this._smallestIndex
+                  )
+                  .classList.add("hideBox");
+              }
             }
 
             this._smallestIndex = this._posIndex;
             this._end = false;
 
-            console.log(this.steps);
             if (this._stepsIndex === this.steps.length - 1) {
-              // if the array is sorted
+              // if all steps are done
+
               this._sorted = true;
-              console.log("sorted!");
+
               for (let i = 1; i <= 6; i++) {
                 document
                   .getElementById("sort" + this.number + "pic" + i)
@@ -266,17 +323,8 @@ export default class SelectionSort {
               this._stepsIndex += 1;
             }
           }
-        } else {
-          console.log(this._end);
-          console.log(this._swapped);
-          console.log(posVal);
-          console.log(swapVal);
-          console.log(this.steps[this._stepsIndex]);
-          console.log(this.steps[this._stepsIndex].indexOf(posVal) > -1);
-          console.log(this.steps[this._stepsIndex].indexOf(swapVal) > -1);
         }
       }
-    } else {
     }
   }
   _toggleShowAll() {
@@ -305,8 +353,6 @@ export default class SelectionSort {
       posElem.classList.remove("hideBox");
       swapElem.classList.remove("hideBox");
       smallestElem.classList.remove("hideBox");
-
-      console.log(smallestElem.classList);
     }
   }
 }

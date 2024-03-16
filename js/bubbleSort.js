@@ -34,6 +34,12 @@ export default class BubbleSort {
   }
   _nextStep() {
     // pressing next
+    for (let i = 1; i <= 6; i++) {
+      document
+        .getElementById("sort" + this.number + "pic" + i)
+        .classList.remove("selected");
+    }
+
     this.selectedNums = [];
     let posElem = document.getElementById(
       "sort" + this.number + "box" + this._posIndex
@@ -95,7 +101,6 @@ export default class BubbleSort {
       }
     } else if (!this._sorted) {
       // if you are supposed to swap the current values
-      console.log("you are supposed to swap the current values");
       document
         .getElementById("sort" + this.number + "step1")
         .classList.remove("highlight");
@@ -116,18 +121,14 @@ export default class BubbleSort {
       ).children[0].id[8];
       if (this._stepsIndex < this.steps.length) {
         let value = event.target;
-        console.log("value:");
-        console.log(value);
         if (this.selectedNums.length === 0) {
           // if this is the first shell to be selected
           this.selectedNums.push(value);
           value.classList.add("selected");
-          console.log("here!!");
         } else if (this.selectedNums[0] === value) {
           // if the user clicks the same shell, cancel the selection
           this.selectedNums.pop();
           value.classList.remove("selected");
-          console.log("here?");
         } else if (
           // if they are trying to perform an invalid move (either swapping wrong shells or not pressing next)
           this._swapped ||
@@ -160,9 +161,7 @@ export default class BubbleSort {
                 .classList.add("highlight");
             }
           }
-
           this.selectedNums[0].classList.remove("selected");
-          console.log("invalid move");
           this.selectedNums = [];
         } else if (
           this.steps[this._stepsIndex].indexOf(posVal) > -1 &&
@@ -188,11 +187,9 @@ export default class BubbleSort {
             "Number of swaps: " + this._numSwaps;
           this._swapped = true;
 
-          console.log(this.steps);
           if (this._stepsIndex === this.steps.length - 1) {
             // if the array is sorted
             this._sorted = true;
-            console.log("sorted!");
             for (let i = 1; i <= 6; i++) {
               document
                 .getElementById("sort" + this.number + "pic" + i)
@@ -209,14 +206,11 @@ export default class BubbleSort {
               .classList.remove("posBox");
           } else {
             // if the array is not yet sorted, continue to the next step
-            console.log("here");
+
             this._stepsIndex += 1;
           }
-        } else {
-          console.log("sadge");
         }
       }
-    } else {
     }
   }
   _toggleShowAll() {

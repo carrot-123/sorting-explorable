@@ -52,8 +52,6 @@ export default class ComputerSort {
     if (!this._sorted) {
       let value = event.target;
       if (!this._swap) {
-        console.log("here");
-        console.log(value.parentElement);
         value.parentElement.classList.remove("hideBox");
         if (this._numLooks === 0) {
           this._numLooks += 1;
@@ -68,11 +66,8 @@ export default class ComputerSort {
           this._currVal = value;
         }*/
         if (value === this._prevVal) {
-          console.log("changing to swap");
           this._swap = true;
         } else if (this._prevVal) {
-          console.log("preval");
-          console.log(this._prevVal);
           this._prevVal.parentElement.classList.add("hideBox");
 
           this._prevVal = value;
@@ -120,12 +115,11 @@ export default class ComputerSort {
           this.workingArray[pos2] = temp;
           console.log(this.workingArray);*/
           let pos1 = this.workingArray.indexOf(child1.id[8].toString());
-          console.log(pos1);
+
           let pos2 = this.workingArray.indexOf(child2.id[8].toString());
           let temp = child1.id[8].toString();
           this.workingArray[pos1] = child2.id[8].toString();
           this.workingArray[pos2] = temp;
-          console.log(this.workingArray);
 
           // check if the array is sorted
           if (

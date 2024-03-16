@@ -8,7 +8,7 @@
 }
 body {
   font-family: "Open Sans", sans-serif;
-  font-size: x-large;
+  font-size: large;
 }
 h1 {
   margin: 0rem;
@@ -17,11 +17,15 @@ h2 {
   margin: 0rem;
 }
 button {
+  /* change button styles later */
   width: 8rem;
   height: 4rem;
   align-self: center;
   justify-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: large;
 }
+
 .box {
   width: 8rem;
   height: 8rem;
@@ -199,12 +203,10 @@ input:checked + .slider:before {
 
 .variable {
   align-self: flex-end;
-  margin-right: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 1rem;
 }
 
@@ -233,12 +235,44 @@ input:checked + .slider:before {
 .statsContainer {
   display: flex;
   flex-direction: row;
+  align-items: start;
+  justify-content: space-evenly;
   gap: 2rem;
 }
 
 .statsBox {
   display: flex;
   flex-direction: column;
+  align-items: start;
+  padding: 1rem;
+}
+
+button#selection,
+button#bubble {
+  width: 16rem;
+  height: fit-content;
+  padding: 1rem;
+}
+.correctBox {
+  border-radius: 0.5rem;
+  border: 2px solid #f0a7a1;
+}
+.graphBox {
+  display: flex;
+  justify-content: center;
+}
+.graphBox > img {
+  width: 34rem;
+  height: 32rem;
+}
+.graphContainer {
+  display: flex;
+  justify-content: center;
+}
+.smallGraphBox > img {
+  width: 20rem;
+  height: 18rem;
+  gap: 2rem;
 }
 
 @keyframes flash {

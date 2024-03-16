@@ -35,6 +35,7 @@ export default class App {
       ["2", "3"],
       ["3", "4"],
       ["4", "5"],
+      ["5", "5"],
     ];
 
     this.workingArray3 = ["3", "1", "2"];

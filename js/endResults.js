@@ -24,14 +24,27 @@ export default class EndResults {
   _revealAnswer() {
     if (!this._revealed) {
       if (this.choice === "bubble") {
-        document.getElementById("revealedStats").classList.remove("hidden");
+        document
+          .querySelectorAll(".revealedStats")
+          .forEach((item) => item.classList.remove("hidden"));
         document.getElementById("correctChoice").classList.remove("hidden");
         document.getElementById("noChoice").classList.add("hidden");
+        document.getElementById("reveal").classList.add("hidden");
+        document.getElementById("selection").classList.add("hidden");
+        document.getElementById("bubble").classList.add("hidden");
+        document.getElementById("bubbleBox").classList.add("correctBox");
         this._revealed = true;
       } else if (this.choice === "selection") {
-        document.getElementById("revealedStats").classList.remove("hidden");
+        document
+          .querySelectorAll(".revealedStats")
+          .forEach((item) => item.classList.remove("hidden"));
         document.getElementById("incorrectChoice").classList.remove("hidden");
         document.getElementById("noChoice").classList.add("hidden");
+        document.getElementById("reveal").classList.add("hidden");
+        document.getElementById("selection").classList.add("hidden");
+        document.getElementById("bubble").classList.add("hidden");
+        document.getElementById("bubbleBox").classList.add("correctBox");
+
         this._revealed = true;
       } else {
         document.getElementById("noChoice").classList.remove("hidden");
@@ -41,8 +54,20 @@ export default class EndResults {
   _setChoice(event) {
     this.choice = event.target.id;
     console.log(this.choice);
+    if (this.choice === "bubble") {
+      event.target.style = "border-radius: 4rem";
+      document.getElementById("selection").style = "button#selection";
+    }
+    if (this.choice === "selection") {
+      event.target.style = "border-radius: 4rem";
+      document.getElementById("bubble").style = "button#bubble";
+    }
   }
   _revealGraphs() {
     document.getElementById("graphExplanation").classList.remove("hidden");
+    document.getElementById("revealGraphs").classList.add("hidden");
+    document
+      .getElementById("bubbleAndSelectionGraph")
+      .classList.remove("hidden");
   }
 }
