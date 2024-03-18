@@ -189,6 +189,7 @@ export default class BubbleSort {
 
           if (this._stepsIndex === this.steps.length - 1) {
             // if the array is sorted
+            console.log("here");
             this._sorted = true;
             for (let i = 1; i <= 6; i++) {
               document
@@ -204,6 +205,10 @@ export default class BubbleSort {
             document
               .getElementById("sort" + this.number + "box" + this._posIndex)
               .classList.remove("posBox");
+
+            document
+              .getElementById("cont" + this.number)
+              .classList.remove("hidden");
           } else {
             // if the array is not yet sorted, continue to the next step
 

@@ -8,9 +8,10 @@
 }
 body {
   font-family: "Open Sans", sans-serif;
-  font-size: large;
+  line-height: 1.7em;
   font-weight: 400;
-  font-size: 15px;
+  color: rgb(54, 54, 54);
+  font-size: 18px;
 }
 h1 {
   margin: 0rem;
@@ -18,8 +19,13 @@ h1 {
 }
 h2 {
   margin: 0rem;
+  margin-bottom: 0.5rem;
   font-family: Georgia;
 }
+.smallGraphBox > h2 {
+  margin: 0;
+}
+
 button {
   /* change button styles later */
   width: fit-content;
@@ -28,29 +34,33 @@ button {
   justify-self: center;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
-
+  color: rgb(54, 54, 54);
   font-size: 15px;
-  border: 2px solid black;
+  border: 2px solid rgb(54, 54, 54);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   background-color: white;
 }
 
 button:hover {
-  background-color: black;
+  background-color: rgb(54, 54, 54);
+  border: 2px solid rgb(54, 54, 54);
   color: white;
 }
 
 .box {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 2rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 1rem;
+  object-fit: contain;
 }
 img {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 2rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 1rem;
   animation: fadein 0.5s;
+  object-fit: contain;
+
   /*border: 2px solid #080808;*/
 }
 .hidden {
@@ -65,14 +75,14 @@ img {
 .hideBox {
   /*opacity: 0;*/ /* still want to show outline of box */
   background-color: #000000; /* might work with png*/
-  opacity: 40%;
+  opacity: 30%;
 }
 .hideBox > .selected {
-  border: 4px solid #025586;
+  border: 4px solid #036299;
 }
 
 .posBox {
-  background-color: #f0a7a1;
+  background-color: rgb(255, 210, 170);
   opacity: 100%;
 }
 
@@ -151,6 +161,7 @@ main {
 }
 .algorithm {
   min-width: 20rem;
+  padding-right: 1rem;
 }
 /* The switch - the box around the slider */
 .switch {
@@ -194,11 +205,11 @@ main {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: rgb(128, 190, 226);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px rgb(128, 190, 226);
 }
 
 input:checked + .slider:before {
@@ -226,21 +237,26 @@ input:checked + .slider:before {
 }
 
 .varBox {
-  width: 7rem;
-  height: 7rem;
-  border-radius: 2rem;
-  border: 2px solid #f0a7a1;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+  border-radius: 1rem;
+  border: 2px solid rgb(128, 190, 226);
   animation: fadein 0.5s;
   object-fit: contain;
 }
 .currentShell {
-  background-color: #f0a7a1;
-  border-radius: 0.5rem;
+  background-color: rgb(255, 210, 170);
+  border-radius: 0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .nextShell {
-  border-radius: 0.5rem;
-  border: 2px solid #f0a7a1;
+  border-radius: 0.25rem;
+  border: 2px solid rgb(128, 190, 226);
   background-color: white;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .highlight {
@@ -270,7 +286,7 @@ button#bubble {
 }
 .correctBox {
   border-radius: 0.5rem;
-  border: 2px solid #f0a7a1;
+  border: 4px solid rgb(128, 190, 226);
 }
 .graphBox {
   display: flex;
@@ -293,7 +309,7 @@ button#bubble {
 @keyframes flash {
   0% {
     background-color: white;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
   }
   50% {
     background-color: #94c8f2;

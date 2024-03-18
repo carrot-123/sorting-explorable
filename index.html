@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main class="titlePage" id="page1">
+    <main id="page1">
       <div class="widthContainer">
         <div class="content">
           <h1>Sorting with Computers</h1>
@@ -30,7 +30,7 @@
         <button type="submit" id="cont2">Continue</button>
       </div>
     </main>
-    <main id="page3" class="hidden">
+    <main id="page3" class="hidden followUp">
       <div class="margin"></div>
       <div class="widthContainer">
         <h1>How we Sort</h1>
@@ -97,12 +97,14 @@
           </div>
         </div>
 
-        <button type="submit" id="cont3">Continue</button>
+        <button type="submit" id="cont3" class="followUp hidden">
+          Continue
+        </button>
       </div>
       <div class="margin"></div>
     </main>
 
-    <main id="page4" class="hidden">
+    <main id="page4" class="hidden followUp">
       <div class="widthContainer">
         <h1>How computers sort</h1>
         <div class="content">
@@ -172,18 +174,20 @@
             swap or look at a shell? Chances are, the strategies you used are
             similar to what a computer would use. <br />
             <br />
-            Another key charactersitc of computers is that they must follow a
-            predetermined, specific order of "looking" and "swapping" (aka an
-            algorithm). There exist many different sorting algorithms, each with
-            their own unique strategy. Let's take a look at two of them, and
-            compare how well you did!
+            Another key charactersitc of computers is that they must follow
+            rules that determine a specific order of "looking" and "swapping"
+            (aka an algorithm). There exist many different sorting algorithms,
+            each with their own unique strategy. Let's take a look at two of
+            them, and compare how well you did!
           </div>
-          <button type="submit" id="cont4">Continue</button>
+          <button type="submit" id="cont4" class="followUp hidden">
+            Continue
+          </button>
         </div>
       </div>
     </main>
 
-    <main id="page5" class="hidden">
+    <main id="page5" class="hidden followUp">
       <div class="widthContainer">
         <h1>Bubble Sort</h1>
         <div class="content">
@@ -197,8 +201,7 @@
             certain shells it has looked at. In this algorithm, you can look
             ahead to the <mark class="nextShell">next shell</mark> and make note
             of it. Follow the bubble sort algorithm step-by-step to sort all the
-            seashells. (Shells that have been sorted into their right place will
-            no longer be considered in our algorithm.)
+            seashells.
           </div>
           <div
             style="
@@ -297,10 +300,12 @@
           </div>
         </div>
 
-        <button type="submit" id="cont5">Continue</button>
+        <button type="submit" id="cont5" class="followUp hidden">
+          Continue
+        </button>
       </div>
     </main>
-    <main id="page6" class="hidden">
+    <main id="page6" class="hidden followUp">
       <div class="widthContainer">
         <h1>Selection Sort</h1>
         <div class="content">
@@ -310,11 +315,10 @@
             <mark class="currentShell">highlighted</mark>, and pressing next
             will look at the next shell. Now, each time we make a pass through
             the shells, we will make note of
-            <mark class="nextShell">the leftmost unsorted shell </mark>and the
-            smallest unsorted shell that we encounter. Follow the selection sort
-            algorithm step-by-step to sort all the seashells. (Shells that have
-            been sorted into their right place will no longer be considered in
-            our algorithm.)
+            <mark class="nextShell">the leftmost unsorted shell</mark> and the
+            <mark class="nextShell">smallest unsorted shell</mark> that we
+            encounter. Follow the selection sort algorithm step-by-step to sort
+            all the seashells.
           </div>
 
           <div
@@ -429,11 +433,13 @@
           </div>
         </div>
 
-        <button type="submit" id="cont6">Continue</button>
+        <button type="submit" id="cont6" class="followUp hidden">
+          Continue
+        </button>
       </div>
     </main>
 
-    <main id="page7" class="hidden">
+    <main id="page7" class="hidden followUp">
       <div class="widthContainer">
         <h1>Which Algorithm is Better?</h1>
         <div class="content">
@@ -524,43 +530,46 @@
 
           <button type="submit" id="reveal">Reveal</button>
 
-          <div class="hidden" id="correctChoice">
+          <div class="hidden followUp" id="correctChoice">
             You're right! Bubble sort now makes fewer swaps than selection sort,
             and 8 less swaps than it did on the other set of shells! (As an
             aside, smart versions of bubble sort would actually take less looks!
-            These algorithms are able to recognize that all shells are sorted by
-            noticing that no swaps were made after looking at all of the shells.
-            ) Since looking at examples one at a time does not tell us much
-            about which algorithm is better, let's see how the two algorithms
-            compare on average.
+            These algorithms are able to realize that if no swaps were made
+            after looking at all of the shells, then they must already be
+            sorted.) Since looking at examples one at a time does not tell us
+            much about which algorithm is better, let's see how the two
+            algorithms compare on average.
           </div>
-          <div class="hidden" id="incorrectChoice">
+          <div class="hidden followUp" id="incorrectChoice">
             Oops! Bubble sort now actuallly makes fewer swaps than selection
             sort, and 8 less swaps than it did on the other set of shells! (As
             an aside, smart versions of bubble sort would actually take less
-            looks! These algorithms are able to recognize that all shells are
-            sorted by noticing that no swaps were made after looking at all of
-            the shells.) Since looking at examples one at a time does not tell
-            us much about which algorithm is better, let's see how the two
+            looks! These algorithms are able to realize that if no swaps were
+            made after looking at all of the shells, then they must already be
+            sorted.) Since looking at examples one at a time does not tell us
+            much about which algorithm is better, let's see how the two
             algorithms compare on average.
           </div>
           <div class="hidden" id="noChoice">
             Pick which sort you think will do better!
           </div>
         </div>
-        <button type="submit" id="cont7">Continue</button>
+        <button type="submit" class="followUp hidden" id="cont7">
+          Continue
+        </button>
       </div>
     </main>
-    <main id="page8" class="hidden">
+    <main id="page8" class="hidden followUp">
       <div class="widthContainer">
         <h1>Which Algorithm is Better on Average?</h1>
         <div class="content">
           <div>
             We can create a graph where the x-axis represents the number of
             shells to be sorted and the y-axis represents the number of looks
-            plus swaps it takes to sort that number of shells. Then, we generate
-            many different sets with a varying number of shells, with different
-            initial orders and plot them. What would the graph look like?
+            plus swaps it takes to sort the shells. Then, we generate sets of
+            shells of varying lengths and initial orders, sort them with bubble
+            sort and insertion sort, and then plot the results. What would the
+            graph look like?
           </div>
 
           <button type="submit" id="revealGraphs">Reveal Graph</button>
@@ -572,16 +581,18 @@
             />
           </div>
 
-          <div class="hidden" id="graphExplanation">
+          <div class="hidden followUp" id="graphExplanation">
             We can see that selection sort seems better than bubble sort.
-            However, on average for both sorts, the number of looks and swaps
-            grows quadratically as the number of shells increases. So while
-            these sorting algorithms are fine when there is only a small number
+            However, for both sorts, the number of looks and swaps grows
+            quadratically on average as the number of shells increases. So while
+            these sorting algorithms are fine when there are only a small number
             of shells to be sorted, they are not ideal when that number becomes
             very big. So what should we do?
           </div>
         </div>
-        <button type="submit" id="cont8">Continue</button>
+        <button type="submit" class="followUp hidden" id="cont8">
+          Continue
+        </button>
       </div>
     </main>
 

@@ -33,6 +33,7 @@ export default class EndResults {
         document.getElementById("selection").classList.add("hidden");
         document.getElementById("bubble").classList.add("hidden");
         document.getElementById("bubbleBox").classList.add("correctBox");
+        document.getElementById("cont7").classList.remove("hidden");
         this._revealed = true;
       } else if (this.choice === "selection") {
         document
@@ -44,7 +45,7 @@ export default class EndResults {
         document.getElementById("selection").classList.add("hidden");
         document.getElementById("bubble").classList.add("hidden");
         document.getElementById("bubbleBox").classList.add("correctBox");
-
+        document.getElementById("cont7").classList.remove("hidden");
         this._revealed = true;
       } else {
         document.getElementById("noChoice").classList.remove("hidden");
@@ -69,5 +70,6 @@ export default class EndResults {
     document
       .getElementById("bubbleAndSelectionGraph")
       .classList.remove("hidden");
+    document.getElementById("cont8").classList.remove("hidden");
   }
 }

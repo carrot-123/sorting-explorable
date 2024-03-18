@@ -318,6 +318,9 @@ export default class SelectionSort {
               document
                 .getElementById("sort" + this.number + "box" + this._posIndex)
                 .classList.remove("posBox");
+              document
+                .getElementById("cont" + this.number)
+                .classList.remove("hidden");
             } else {
               // if the array is not yet sorted, continue to the next step
               this._stepsIndex += 1;
