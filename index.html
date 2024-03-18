@@ -516,10 +516,12 @@
               <h2>Selection Sort</h2>
               <ol>
                 <li>
-                  If the shell you are looking at is bigger than the next shell,
-                  swap them
+                  Look through all of the unsorted shells to find the smallest
+                  shell.
                 </li>
-                <li>Look at the next shell</li>
+                <li>
+                  Swap the smallest shell with the leftmost unsorted shell.
+                </li>
               </ol>
 
               <button type="submit" id="selection">This one!</button>
@@ -531,24 +533,16 @@
           <button type="submit" id="reveal">Reveal</button>
 
           <div class="hidden followUp" id="correctChoice">
-            You're right! Bubble sort now makes fewer swaps than selection sort,
-            and 8 less swaps than it did on the other set of shells! (As an
-            aside, smart versions of bubble sort would actually take less looks!
-            These algorithms are able to realize that if no swaps were made
-            after looking at all of the shells, then they must already be
-            sorted.) Since looking at examples one at a time does not tell us
-            much about which algorithm is better, let's see how the two
-            algorithms compare on average.
+            You're right! Bubble sort now makes fewer swaps than selection sort!
+            Since looking at single examples does not tell us much about which
+            algorithm is better, let's see how the two algorithms compare on
+            average.
           </div>
           <div class="hidden followUp" id="incorrectChoice">
             Oops! Bubble sort now actuallly makes fewer swaps than selection
-            sort, and 8 less swaps than it did on the other set of shells! (As
-            an aside, smart versions of bubble sort would actually take less
-            looks! These algorithms are able to realize that if no swaps were
-            made after looking at all of the shells, then they must already be
-            sorted.) Since looking at examples one at a time does not tell us
-            much about which algorithm is better, let's see how the two
-            algorithms compare on average.
+            sort! Since looking at single examples does not tell us much about
+            which algorithm is better, let's see how the two algorithms compare
+            on average.
           </div>
           <div class="hidden" id="noChoice">
             Pick which sort you think will do better!
