@@ -9,21 +9,36 @@
 body {
   font-family: "Open Sans", sans-serif;
   font-size: large;
+  font-weight: 400;
+  font-size: 15px;
 }
 h1 {
   margin: 0rem;
+  font-family: Georgia;
 }
 h2 {
   margin: 0rem;
+  font-family: Georgia;
 }
 button {
   /* change button styles later */
-  width: 8rem;
-  height: 4rem;
+  width: fit-content;
+  height: fit-content;
   align-self: center;
   justify-self: center;
   font-family: "Open Sans", sans-serif;
-  font-size: large;
+  font-weight: bold;
+
+  font-size: 15px;
+  border: 2px solid black;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
 }
 
 .box {
@@ -120,7 +135,7 @@ main {
 .content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }

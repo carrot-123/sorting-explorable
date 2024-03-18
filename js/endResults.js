@@ -55,11 +55,11 @@ export default class EndResults {
     this.choice = event.target.id;
     console.log(this.choice);
     if (this.choice === "bubble") {
-      event.target.style = "border-radius: 4rem";
+      event.target.style = "background-color: black; color: white";
       document.getElementById("selection").style = "button#selection";
     }
     if (this.choice === "selection") {
-      event.target.style = "border-radius: 4rem";
+      event.target.style = "background-color: black; color: white";
       document.getElementById("bubble").style = "button#bubble";
     }
   }
