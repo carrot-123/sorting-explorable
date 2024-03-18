@@ -57,14 +57,13 @@ export default class SelectionSort {
     );
     let smallestVal = smallestElem.children[0].id[8];
     if (!this._sorted) {
-      if (this._posIndex + 1 >= this._posUpperBound) {
+      if (this._posIndex + 1 === this._posUpperBound) {
         this._end = true;
       }
       if (this._posIndex === this._posUpperBound) {
         // if we reached the end of the array
         // reaching the end of an array in insertion sort means that we want to swap an element
         // after swapping, the beginning of the array will be sorted
-        this._end = true;
 
         if (this._swapped) {
           this._swapped = false;
