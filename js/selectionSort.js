@@ -1,8 +1,7 @@
 export default class SelectionSort {
-  constructor(steps, workingArray, number) {
+  constructor(steps, number) {
     this.selectedNums = []; // array to track which shells are selected to be swapped
     this.steps = steps; // track where we are in the steps array
-    this.workingArray = workingArray;
     this.number = number;
     this._numSwaps = 0;
     this._numLooks = 1;
@@ -81,9 +80,6 @@ export default class SelectionSort {
             newSwapElem.children[0].src;
           document.getElementById("looks" + this.number).textContent =
             "Number of looks: " + this._numLooks;
-          /*if (newSwapElem.id[8] !== "6") {
-            this._end = false;
-          }*/
         } else {
           document
             .getElementById("sort" + this.number + "step2")
@@ -95,7 +91,7 @@ export default class SelectionSort {
         }
       } else {
         this._posIndex += 1;
-        //this._swapIndex += 1;
+
         this._numLooks += 1;
         document.getElementById("looks" + this.number).textContent =
           "Number of looks: " + this._numLooks;
@@ -127,17 +123,6 @@ export default class SelectionSort {
           .getElementById("sort" + this.number + "box" + this._smallestIndex)
           .classList.remove("hideBox");
       }
-      /*} else if (!this._sorted) {
-        // if you are supposed to swap the current values
-        console.log("you are supposed to swap the current values");
-        document
-          .getElementById("sort" + this.number + "step1")
-          .classList.remove("highlight");
-        void document.getElementById("sort" + this.number + "step1").offsetWidth;
-        document
-          .getElementById("sort" + this.number + "step1")
-          .classList.add("highlight");
-      }*/
     }
   }
   _handleSwap(event) {
@@ -196,31 +181,6 @@ export default class SelectionSort {
 
               this.selectedNums = [];
             }
-
-            /*if (
-              // if they already swapped the correct elements but they are not pressing next (trying to keep swapping)
-              //this.steps[this._stepsIndex].indexOf(posVal) === -1
-              this._swapped
-            ) {
-              document
-                .getElementById("sort" + this.number + "step1")
-                .classList.remove("highlight");
-              void document.getElementById("sort" + this.number + "step1")
-                .offsetWidth;
-              document
-                .getElementById("sort" + this.number + "step1")
-                .classList.add("highlight");
-            } else {
-              // if they are trying to swap the wrong shells
-              document
-                .getElementById("sort" + this.number + "step2")
-                .classList.remove("highlight");
-              void document.getElementById("sort" + this.number + "step2")
-                .offsetWidth;
-              document
-                .getElementById("sort" + this.number + "step2")
-                .classList.add("highlight");
-            }*/
           }
         } else if (
           this.steps[this._stepsIndex].indexOf(this.selectedNums[0].id[8]) >
@@ -252,10 +212,6 @@ export default class SelectionSort {
             this.selectedNums[1].classList.remove("selected");
             this.selectedNums = [];
 
-            /*document.getElementById("varBox" + this.number).src =
-            document.getElementById(
-              "sort" + this.number + "box" + this._swapIndex
-            ).children[0].src;*/
             if (
               this.steps[this._stepsIndex][0] !==
               this.steps[this._stepsIndex][1]
@@ -279,9 +235,7 @@ export default class SelectionSort {
                 "sort" + this.number + "pic" + this._swapIndex + "color"
               )
               .classList.remove("hidden");
-            /*document
-            .getElementById("sort" + this.number + "pic" + this._smallestIndex)
-            .classList.add("hideBox");*/
+
             if (!this._showAll) {
               if (
                 this.steps[this._stepsIndex][0] !==
@@ -350,8 +304,6 @@ export default class SelectionSort {
           .getElementById("sort" + this.number + "box" + i)
           .classList.add("hideBox");
       }
-      //smallestElem.classList.add("hideBox");
-      //smallestElem.classList.remove("hideBox");
       posElem.classList.remove("hideBox");
       swapElem.classList.remove("hideBox");
       smallestElem.classList.remove("hideBox");

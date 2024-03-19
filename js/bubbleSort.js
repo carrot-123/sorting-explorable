@@ -1,8 +1,7 @@
 export default class BubbleSort {
-  constructor(steps, workingArray, number) {
+  constructor(steps, number) {
     this.selectedNums = []; // array to track which shells are selected to be swapped
     this.steps = steps; // track where we are in the steps array
-    this.workingArray = workingArray;
     this.number = number;
     this._numSwaps = 0;
     this._numLooks = 2;
@@ -189,7 +188,7 @@ export default class BubbleSort {
 
           if (this._stepsIndex === this.steps.length - 1) {
             // if the array is sorted
-            console.log("here");
+
             this._sorted = true;
             for (let i = 1; i <= 6; i++) {
               document

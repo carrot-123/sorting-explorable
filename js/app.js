@@ -6,16 +6,9 @@ import EndResults from "./endResults.js";
 
 export default class App {
   constructor() {
-    this.sortedArray1 = ["1", "2", "3"];
-    this.workingArray1 = ["2", "1", "3"];
-    this.sortedArray2 = ["1", "2", "3"];
-    this.workingArray2 = ["6", "3", "4", "5", "2", "1"]; // change the order
+    this.workingArray0 = ["3", "5", "2", "6", "1", "4"]; // change the order
     this.sortedArray = ["1", "2", "3", "4", "5", "6"];
     this.workingArray = ["6", "3", "4", "5", "2", "1"];
-    this.steps = [
-      ["1", "2"],
-      ["2", "3"],
-    ];
     this.bubbleSortSteps = [
       ["6", "3"],
       ["6", "4"],
@@ -38,24 +31,15 @@ export default class App {
       ["5", "5"],
     ];
 
-    this.workingArray3 = ["3", "1", "2"];
-    this._freeSort1 = new FreeSort(this.sortedArray, this.workingArray, "3");
-    this._freeSort2 = new ComputerSort(
+    this._freeSort = new FreeSort(this.sortedArray, this.workingArray0, "3");
+    this._computerSort = new ComputerSort(
       this.sortedArray,
-      this.workingArray2,
+      this.workingArray,
       "4"
     );
     //this._freeSort3 = new RestrictedSort(this.steps, this.workingArray3, "3");
-    this._bubbleSort = new BubbleSort(
-      this.bubbleSortSteps,
-      this.workingArray,
-      "5"
-    );
-    this._selectionSort = new SelectionSort(
-      this.selectionSortSteps,
-      this.workingArray,
-      "6"
-    );
+    this._bubbleSort = new BubbleSort(this.bubbleSortSteps, "5");
+    this._selectionSort = new SelectionSort(this.selectionSortSteps, "6");
     this._endResults = new EndResults();
 
     this._nextPage = this._nextPage.bind(this);
@@ -67,8 +51,6 @@ export default class App {
     document.querySelector("#cont6").addEventListener("click", this._nextPage);
     document.querySelector("#cont7").addEventListener("click", this._nextPage);
     document.querySelector("#cont8").addEventListener("click", this._nextPage);
-
-    //document.querySelector("#next6").addEventListener("click", this._nextPage);
   }
   _nextPage(event) {
     let pageNum = event.target.id.slice(4);
